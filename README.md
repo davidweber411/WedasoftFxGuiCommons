@@ -1,26 +1,31 @@
-# Description
+### Description
 
-A library which allows you to handle all kind of scenes and dialogs the easy way.
+A library designed to simplify the management of various scenes and dialogs.
 
-##### Dialog API
+### Features
 
-- Create complex .fxml file based dialogs and pass and retrieve arguments without any effort.
+#### Dialog API
+
+- Create complex .fxml-based dialogs with ease, allowing for effortless passing and retrieving of arguments.
 
 
-- Profit from predefined common information-, warning-, error-, confirmation- and input dialogs.
+- Benefit from predefined dialogs for common tasks, including information, warning, error, confirmation, and input
+  dialogs.
 
-##### Scene API
+#### Scene API
 
-- Switch the content of a scene easily. Pass and retrieve arguments if wanted.
+- Easily switch the content of a scene, with optional support for passing and retrieving arguments as needed.
 
-# Requirements
+### Requirements
 
-This Java library was built by using JDK 17.<br>
-Please make sure that your project is using at least JDK 17 too.
+| Technology | Version |
+|------------|---------|
+| Java       | 17      |
+| JavaFX     | 17.0.8  |
 
-# Dependencies to add
+### Dependencies to add
 
-##### Maven
+#### Maven
 
     <!-- Maven looks in the central repository by default. -->
     <dependency>
@@ -29,7 +34,7 @@ Please make sure that your project is using at least JDK 17 too.
       <version>1.0.0</version>
     </dependency>
 
-##### Gradle
+#### Gradle
 
     repositories {
       mavenCentral()
@@ -38,7 +43,9 @@ Please make sure that your project is using at least JDK 17 too.
       implementation("com.wedasoft:wedasoftfxguicommons:1.0.0")
     }
 
-# Common Dialogs
+### Documentation
+
+#### Create common Dialogs
 
     JfxDialogUtil.createInformationDialog(String message).showAndWait();
 
@@ -60,10 +67,16 @@ Please make sure that your project is using at least JDK 17 too.
     
     JfxDialogUtil.displayExitProgramDialog();
 
-# Complex Dialogs
+#### Create complex Dialogs
 
-Your dream is to create a fxml based dialog, pass arguments into it, and compute them in the controller of the new
-Scene? Then take a look at this:
+##### Step 1 (optional): Create an init() in the new controller ...
+
+    public void init(String passedParameter){
+        // compute the passed parameters
+        // do other "constructor things"
+    }
+
+##### Step 2: Create and show the dialog
 
     JfxDialogUtil.createAndShowFxmlDialog(
         /* title */                  "My Dialog title",
@@ -71,21 +84,19 @@ Scene? Then take a look at this:
         /* dialogIsResizeable */     false,
         /* absoluteFxmlFileUrl */    getClass().getResource("/com/example/app/views/scene1.fxml"),
         /* preferred sceneSize */    new Dimension2D(600, 500),
-        /* initMethodOfController */ (Consumer<Scene1Controller>) consumer -> consumer.init("myparamter1"),
+        /* initMethodOfController */ null / (Consumer<Scene1Controller>) consumer -> consumer.init("myparamter1"),
         /* callbackOnDialogClose */  () -> integerValueChangedByCallback = 52)
 
-# SceneUtil API
+#### Switch scene content
 
-Switch scenes of stages easily. Pass and retrieve arguments to your scenes and compute them.
-
-### Step 1 (optional): Create an init() in the new controller ...
+##### Step 1 (optional): Create an init() in the new controller ...
 
     public void init(String passedParameter){
         // compute the passed parameters
         // do other "constructor things"
     }
 
-### Step 2: Determine the stage ...
+##### Step 2: Determine the stage ...
 
     SceneUtil.getStageByActionEvent(ActionEvent event);
 
@@ -93,7 +104,7 @@ Switch scenes of stages easily. Pass and retrieve arguments to your scenes and c
 
     SceneUtil.getStageByScene(Scene scene);
 
-### Step 3: Switch the root content of its scene ...
+##### Step 3: Switch the root content of its scene ...
 
     SceneUtil.switchSceneRoot(
         SceneUtil.getStageByActionEvent(event),
