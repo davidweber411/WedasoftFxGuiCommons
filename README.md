@@ -4,7 +4,7 @@ A library designed to simplify the management of various scenes and dialogs.
 
 ### Features
 
-#### Dialog API
+##### Dialog API
 
 - Create complex .fxml-based dialogs with ease, allowing for effortless passing and retrieving of arguments.
 
@@ -12,7 +12,7 @@ A library designed to simplify the management of various scenes and dialogs.
 - Benefit from predefined dialogs for common tasks, including information, warning, error, confirmation, and input
   dialogs.
 
-#### Scene API
+##### Scene API
 
 - Easily switch the content of a scene, with optional support for passing and retrieving arguments as needed.
 
@@ -25,7 +25,7 @@ A library designed to simplify the management of various scenes and dialogs.
 
 ### Dependencies to add
 
-#### Maven
+##### Maven
 
     <!-- Maven looks in the central repository by default. -->
     <dependency>
@@ -34,7 +34,7 @@ A library designed to simplify the management of various scenes and dialogs.
       <version>1.0.0</version>
     </dependency>
 
-#### Gradle
+##### Gradle
 
     repositories {
       mavenCentral()
